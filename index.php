@@ -41,20 +41,21 @@
 
 			<?php
 
+
 			// $do = (isset($_GET['do']))?$_GET['do']:"main";
 			$do=$_GET['do']??'main';
 			// 只有isset這樣用
 
-			switch ($do) {
-				case "login":
-					include "./front/login.php";
-					break;
-				case "news":
-					include "./front/news.php";
-					break;
-				default:
-					include "./front/main.php";
+
+			$array=['login','news','main'];
+
+			if(in_array($do,$array)){
+				include "./front/$do.php";
+			}else{
+				include "./front/main.php";
 			}
+
+			
 
 			?>
 
