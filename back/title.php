@@ -22,7 +22,7 @@
                     <td width="7%"><input type="radio" name="sh" id="" value="<?=$row['id'];?>"></td>
                     <td width="7%"><input type="checkbox" name="del[]" id="" value="<?=$row['id'];?>"></td>
                    <td>
-                   <input type="button"onclick="op('#cover','#cvr','./modal/upload_<?= $do ?>.php?table=<?= $do ?>')" value="更新圖片">
+                   <input type="button"onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do ?>&id=<?=$row['id']?>')" value="更新圖片">
                    </td>
                 </tr>
                 <?php
