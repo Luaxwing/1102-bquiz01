@@ -2,7 +2,7 @@
 <hr>
 
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="./api/add.php" method="post" enctype="multipart/form-data">
 
 
     <table>
