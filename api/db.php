@@ -198,6 +198,7 @@ function to($url){
 // $Title = new DB('que');
 
 $Total=new DB('total');
+$Bottom=new DB('bottom');
 
 
 ?>
