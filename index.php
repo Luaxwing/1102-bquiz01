@@ -42,23 +42,27 @@
 					</span>
 				</div>
 			</div>
+			<div class="di"
+				style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
+				<marquee scrolldelay="120" direction="left" style="position:absolute; width:100%; height:40px;">
+				test test test
+				</marquee>
+				<!-- ----------------------------------------------------------MID----------------------------------------------------------------- -->
 
-			<!-- ----------------------------------------------------------MID----------------------------------------------------------------- -->
+				<?php
+				// $do = (isset($_GET['do']))?$_GET['do']:"main";
+				$do = $_GET['do'] ?? 'main';
+				// 只有isset這樣用
+				$file = "./front/{$do}.php";
+				if (file_exists($file)) {
+					include $file;
+				} else {
+					include "./front/main.php";
+				}
+				?>
 
-			<?php
-			// $do = (isset($_GET['do']))?$_GET['do']:"main";
-			$do = $_GET['do'] ?? 'main';
-			// 只有isset這樣用
-			$file = "./front/{$do}.php";
-			if (file_exists($file)) {
-				include $file;
-			} else {
-				include "./front/main.php";
-			}
-			?>
-
-			<!-- --------------------------------------------------------MID-END--------------------------------------------------------------- -->
-
+				<!-- --------------------------------------------------------MID-END--------------------------------------------------------------- -->
+			</div>
 			<div id="alt"
 				style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;">
 			</div>
@@ -107,7 +111,9 @@
 		<div style="clear:both;"></div>
 		<div
 			style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
+			<span class="t" style="line-height:123px;">
+				<?= $Bottom->find(1)['bottom']; ?>
+			</span>
 		</div>
 	</div>
 

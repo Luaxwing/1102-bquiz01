@@ -1,6 +1,6 @@
 <h3>
     <!--  -->
-新增網站標題圖片
+新增動態文字廣告
 <!--  -->
 </h3>
 <hr>
@@ -10,14 +10,14 @@
 
 
     <table>
-        <tr>
+        <!-- <tr>
             <td>標題區圖片</td>
             <td><input type="file" name="img" id=""></td>
-        </tr>
+        </tr> -->
 
         <!--  -->
         <tr>
-            <td>標題區替代文字</td>
+            <td>動態文字廣告</td>
             <td><input type="text" name="text" id=""></td>
         </tr>
         <!--  -->
