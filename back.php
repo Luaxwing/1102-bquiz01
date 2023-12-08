@@ -16,18 +16,21 @@
 
 <body>
 	<div id="cover" style="display:none; ">
-	<div id="coverr">
-	<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl('#cover')">X</a>
-            <div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
+		<div id="coverr">
+			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl('#cover')">X</a>
+			<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
 		</div>
 	</div>
 
 	<!-- 讓傳值不會有頁面跳動(舊技術) -->
-	<iframe style="display:none;" name="back" id="back"></iframe>
+	<!-- <iframe style="display:none;" name="back" id="back"></iframe> -->
 
 	<div id="main">
-		<a title="" href="?">
-			<div class="ti" style="background:url('use/'); background-size:cover;"></div><!--標題-->
+		<?php
+		$img = $Title->find(['sh' => 1]);
+		?>
+		<a title="<?= $img['text'] ?>" href="?">
+			<div class="ti" style="background:url('./img/<?= $img['img'] ?>'); background-size:cover;"></div><!--標題-->
 		</a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
@@ -80,8 +83,8 @@
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :
 						<!-- 1 -->
-						<?=$Total->find(1)['total'];?>
-					 </span>
+						<?= $Total->find(1)['total']; ?>
+					</span>
 				</div>
 			</div>
 			<div class="di"
@@ -167,7 +170,7 @@
 		<div style="clear:both;"></div>
 		<div
 			style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"><?=$Bottom->find(1)['bottom'];?></span>
+			<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
 		</div>
 	</div>
 
