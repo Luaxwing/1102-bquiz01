@@ -76,15 +76,15 @@ class DB
 
     // 
     // 查找特定ID 或 條件
-    function find($id)
+    function find($a)
     {
         $sql = "select * from `$this->table` ";
 
-        if (is_array($id)) {
-            $tmp = $this->a2s($id);
+        if (is_array($a)) {
+            $tmp = $this->a2s($a);
             $sql .= " where " . join(" && ", $tmp);
-        } else if (is_numeric($id)) {
-            $sql .= " where `id`='$id'";
+        } else if (is_numeric($a)) {
+            $sql .= " where `id`='$a'";
         } else {
             echo "錯誤:參數的資料型態比須是數字或陣列";
         }

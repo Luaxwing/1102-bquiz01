@@ -1,9 +1,10 @@
-<form method="post"  action="../api/edit_bottom.php">
+<form method="post"  action="../api/edit_info.php">
         <table width="50%" style="margin:auto;">
             <tbody>
                 <tr class="yel">
                     <td width="50%">頁尾版權</td>
                     <td width="50%"><input type="text" name="bottom" id="" value="<?=$Bottom->find(1)['bottom']?>"></td>
+                    <input type="hidden" name="table" id="" value="<?=$do;?>">
                     <td></td>
                 </tr>
             </tbody>
