@@ -70,7 +70,7 @@ body
 {
 	position:relative;
 	border-radius:10px;
-	background:url(../icon/menu.fw.png) center no-repeat;
+	background:url(../icons/menu.fw.png) center no-repeat;
 	background-size:cover;
 	line-height:30px;
 	padding:2px 10px 2px 10px;
@@ -79,7 +79,7 @@ body
 }
 .mainmu:hover
 {
-	background:url(../icon/menu2.fw.png) center no-repeat;
+	background:url(../icons/menu2.fw.png) center no-repeat;
 	background-size:cover;
 	/* background-color: #09C; */
 }
@@ -87,7 +87,7 @@ body
 {
 	position:relative;
 	border-radius:10px;
-	background:url(../icon/menu3.fw.png)center no-repeat;
+	background:url(../icons/menu3.fw.png)center no-repeat;
 	background-size:100% 100%;
 	line-height:30px;
 	padding:2px 10px 2px 10px;
@@ -95,7 +95,7 @@ body
 }
 .mainmu2:hover
 {
-	background:url(../icon/menu4.fw.png) center no-repeat;
+	background:url(../icons/menu4.fw.png) center no-repeat;
 	background-size:cover;
 }
 #lf
