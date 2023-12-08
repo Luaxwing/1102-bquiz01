@@ -1,4 +1,6 @@
-<form method="post" target="back" action="?do=tii">
+<!-- 有target-----iframe -->
+<!-- <form method="post" target="back" action="?do=tii"> -->
+<form method="post"  action="../api/edit_total.php">
         <table width="50%" style="margin:auto;">
             <tbody>
                 <tr class="yel">
