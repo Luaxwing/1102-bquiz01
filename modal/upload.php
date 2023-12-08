@@ -1,8 +1,8 @@
-<h3>修改網站標題圖片</h3>
+<h3>更新網站標題圖片</h3>
 <hr>
 
 
-<form action="./api/add.php" method="post" enctype="multipart/form-data">
+<form action="./api/update.php" method="post" enctype="multipart/form-data">
 
 
     <table>
@@ -13,7 +13,8 @@
 
     </table>
     <div>
-        <input type="hidden" name="table" id="" value="<?=$_GET['table']?>">
+        <input type="hidden" name="table" id="" value="<?= $_GET['table'] ?>">
+        <input type="hidden" name="id" id="" value="<?= $_GET['id'] ?>">
         <input type="submit" value="新增">
         <input type="reset" value="重置">
     </div>
