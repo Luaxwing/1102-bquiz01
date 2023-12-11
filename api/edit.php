@@ -5,9 +5,9 @@ $table = $_POST['table'];
 $DB = ${ucfirst($table)};
 unset($_POST['table']);
 // 
-if(isset($_POST['id'])){
-    foreach ($_POST['id'] as $id){
-        $_POST['text'][$id]='';
+if (isset($_POST['id'])) {
+    foreach ($_POST['id'] as $id) {
+        $_POST['text'][$id] = '';
     }
 }
 // 
@@ -17,17 +17,23 @@ foreach ($_POST['text'] as $id => $text) {
     } else {
         $row = $DB->find($id);
         // 
-        if(isset($row['text'])){
+        if (isset($row['text'])) {
             $row['text'] = $text;
         }
         // 
-        if($table=='title'){
+
+        if ($table == 'title') {
             $row['sh'] = ((isset($_POST['sh'])) && $_POST['sh'] == $id) ? 1 : 0;
 
-        }else{
-            $row['sh'] = ((isset($_POST['sh'])) && in_array($id,$_POST['sh'])) ? 1 : 0;
+        } else {
+            $row['sh'] = ((isset($_POST['sh'])) && in_array($id, $_POST['sh'])) ? 1 : 0;
 
         }
+
+
+
+
+
         $DB->save($row);
     }
 }
