@@ -35,17 +35,7 @@
 
     <div class="cent">
         <?php
-        for ($i = 1; $i <= $pages; $i++) {
-            $fontsize=($now==$i)?'24px':'16px';
-            echo " <a href=?do=news&p=$i";
-            echo " style=font-size:$fontsize;";
-            // if($i==$now){
-            //     echo " style=font-size:25px;";
-            // }
-            echo">";
-            echo $i;
-            echo "</a>";
-        }
+        pegetabs($now, $pages,$_GET['do']);
         ?>
     </div>
 

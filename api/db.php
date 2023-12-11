@@ -194,6 +194,34 @@ function to($url){
     header("location:$url");
 }
 
+// 分頁標籤
+function pegetabs($now,$pages,$table){
+    
+    $prev = $now - 1;
+    if ($prev >= 1) {
+        
+        echo "<a href='?do=$table&p=$prev'> &lt; </a>";
+    }
+    
+    for ($i = 1; $i <= $pages; $i++) {
+        $fontsize = ($now == $i) ? '24px' : '16px';
+        echo " <a href=?do=$table&p=$i";
+        echo " style=font-size:$fontsize;";
+        // if($i==$now){
+        //     echo " style=font-size:25px;";
+        // }
+        echo ">";
+        echo $i;
+        echo "</a>";
+    }
+    
+    $next = $now + 1;
+    if ($next <= $pages) {
+        echo "<a href='?do=$table&p=$next'> &gt; </a>";
+    }
+    
+}
+
 
 // $Title = new DB('que');
 
