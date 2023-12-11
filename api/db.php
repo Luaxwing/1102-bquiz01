@@ -201,6 +201,7 @@ function to($url){
 $Title=new DB('title');
 $Ad=new DB('ad');
 $Mvim=new DB('mvim');
+$Image=new DB('image');
 $Total=new DB('total');
 $Bottom=new DB('bottom');
 
