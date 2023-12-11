@@ -8,7 +8,8 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows=$Image->all();
+                // $DB=${ucfirst($do)};
+                $rows=$DB->all();
                 foreach($rows as $row){
                 ?>
                 <tr>

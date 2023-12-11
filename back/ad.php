@@ -10,8 +10,8 @@
                 <!-- <td></td> -->
             </tr>
             <?php
-            $rows = $Ad->all();
-            foreach ($rows as $row) {
+                $rows=$DB->all();
+                foreach($rows as $row){
                 ?>
                 <tr>
     

@@ -11,20 +11,22 @@
                 <td></td>
             </tr>
             <?php
-            $rows = $Title->all();
-            foreach ($rows as $row) {
+                $rows=$DB->all();
+                foreach($rows as $row){
                 ?>
                 <tr>
                     <td width="45%">
-                        <img src="../img/<?=$row['img']?>" alt="" style="width=300px;height:30px";>
+                        <img src="../img/<?= $row['img'] ?>" alt="" style="width=300px;height:30px" ;>
                     </td>
-                    <td width="23%"><input type="text" name="text[<?=$row['id']?>]" id="" value="<?=$row['text'];?>"></td>
-                    <td width="7%"><input type="radio" name="sh" id="" value="<?=$row['id'];?>"
-                    <?=($row['sh']==1)?'checked':'';?>></td>
-                    <td width="7%"><input type="checkbox" name="del[]" id="" value="<?=$row['id'];?>"></td>
-                   <td>
-                   <input type="button"onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do ?>&id=<?=$row['id']?>')" value="更新圖片">
-                   </td>
+                    <td width="23%"><input type="text" name="text[<?= $row['id'] ?>]" id="" value="<?= $row['text']; ?>"></td>
+                    <td width="7%"><input type="radio" name="sh" id="" value="<?= $row['id']; ?>"
+                            <?= ($row['sh'] == 1) ? 'checked' : ''; ?>></td>
+                    <td width="7%"><input type="checkbox" name="del[]" id="" value="<?= $row['id']; ?>"></td>
+                    <td>
+                        <input type="button"
+                            onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do ?>&id=<?= $row['id'] ?>')"
+                            value="更新圖片">
+                    </td>
                 </tr>
                 <?php
             }

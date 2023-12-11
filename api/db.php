@@ -204,6 +204,10 @@ $Mvim=new DB('mvim');
 $Image=new DB('image');
 $Total=new DB('total');
 $Bottom=new DB('bottom');
+$News=new DB('news');
 
+if(isset($_GET['do'])){
+    $DB=${ucfirst($_GET['do'])};
+}
 
 ?>
