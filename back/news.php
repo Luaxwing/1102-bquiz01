@@ -9,15 +9,19 @@
                 <!-- <td></td> -->
             </tr>
             <?php
-            $rows = $DB->all();
+            $total = $DB->count();
+            $div = 5;
+            $pages = ceil($total / $div);
+            $now = $_GET['p'] ?? 1;
+            $start = ($now - 1) * $div;
+            $rows = $DB->all("limit $start,$div");
             foreach ($rows as $row) {
                 ?>
                 <tr>
 
-                    <td><textarea type="text" name="text[<?= $row['id'] ?>]" id="" 
-                    style="width:90%;height:50px;">"<?= $row['text']; ?></textarea></td>
-                    <td><input type="checkbox" name="sh[]" id="" value="<?= $row['id']; ?>"
-                            <?= ($row['sh'] == 1) ? 'checked' : ''; ?>></td>
+                    <td><textarea type="text" name="text[<?= $row['id'] ?>]" id=""
+                            style="width:90%;height:50px;">"<?= $row['text']; ?></textarea></td>
+                    <td><input type="checkbox" name="sh[]" id="" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>></td>
                     <td><input type="checkbox" name="del[]" id="" value="<?= $row['id']; ?>"></td>
                     <!-- <td>
                    <input type="button"onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do ?>&id=<?= $row['id'] ?>')" value="更新圖片">
@@ -28,6 +32,23 @@
             ?>
         </tbody>
     </table>
+
+    <div class="cent">
+        <?php
+        for ($i = 1; $i <= $pages; $i++) {
+            $fontsize=($now==$i)?'24px':'16px';
+            echo " <a href=?do=news&p=$i";
+            echo " style=font-size:$fontsize;";
+            // if($i==$now){
+            //     echo " style=font-size:25px;";
+            // }
+            echo">";
+            echo $i;
+            echo "</a>";
+        }
+        ?>
+    </div>
+
     <table style="margin-top:40px; width:70%;">
         <tbody>
             <tr>
