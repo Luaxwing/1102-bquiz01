@@ -10,7 +10,7 @@ if(isset($_FILES['img']['tmp_name'])){
     $_POST['img']=$_FILES['img']['name'];
 }
 
-//
+//標題頁sh預設為0(不顯示)，其他為1(顯示)
 $_POST['sh']=($table=='title')?0:1;
 
 unset($_POST['table']);
