@@ -14,9 +14,7 @@
             foreach ($rows as $row) {
                 ?>
                 <tr>
-                    <!-- <td width="45%">
-                        <img src="../img/<?=$row['img']?>" alt="" style="width=300px;height:30px";>
-                    </td> -->
+    
                     <td ><input type="text" name="text[<?=$row['id']?>]" id="" value="<?=$row['text'];?>"style="width:80%;"></td>
                     <td ><input type="checkbox" name="sh[]" id="" value="<?=$row['id'];?>"
                     <?=($row['sh']==1)?'checked':'';?>></td>

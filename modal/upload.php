@@ -1,4 +1,19 @@
-<h3>更新網站標題圖片</h3>
+<?php
+switch($_GET['table']){
+case "title":
+    echo "<h3>更新網站標題圖片</h3>";
+    break;
+case "mvim":
+    echo "<h3>更新動畫圖片</h3>";
+    break;
+}
+?>
+
+
+
+
+
+
 <hr>
 
 
@@ -7,7 +22,18 @@
 
     <table>
         <tr>
-            <td>標題區圖片</td>
+
+        <?php
+switch($_GET['table']){
+case "title":
+    echo "<td>標題區圖片</td>";
+    break;
+case "mvim":
+    echo "<td>動畫圖片</td>";
+    break;
+}
+?>
+            
             <td><input type="file" name="img" id=""></td>
         </tr>
 

@@ -27,7 +27,7 @@
 		<?php
 		$img = $Title->find(['sh' => 1]);
 		?>
-		<a title="<?= $img['text'] ?>" href="?">
+		<a title="<?= $img['text'] ?>" href="./back.php?">
 			<div class="ti" style="background:url('./img/<?= $img['img'] ?>'); background-size:cover;"></div><!--標題-->
 		</a>
 		<div id="ms">
