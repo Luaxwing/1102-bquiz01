@@ -83,20 +83,6 @@
 					onclick="lo(&#39;?do=login&#39;)">管理登入</button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
-					<script>
-						var nowpage = 0, num = 0;
-						function pp(x) {
-							var s, t;
-							if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
-							if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) { nowpage++; }
-							$(".im").hide()
-							for (s = 0; s <= 2; s++) {
-								t = s * 1 + nowpage * 1;
-								$("#ssaa" + t).show()
-							}
-						}
-						pp(1)
-					</script>
 				</div>
 			</div>
 
@@ -105,13 +91,27 @@
 		</div>
 		<div style="clear:both;"></div>
 		<div
-			style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
+		style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
 			<span class="t" style="line-height:123px;">
 				<?= $Bottom->find(1)['bottom']; ?>
 			</span>
 		</div>
 	</div>
 
+		<script>
+			var nowpage = 0, num = 0;
+			function pp(x) {
+				var s, t;
+				if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
+				if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) { nowpage++; }
+				$(".im").hide()
+				for (s = 0; s <= 2; s++) {
+					t = s * 1 + nowpage * 1;
+					$("#ssaa" + t).show()
+				}
+			}
+			pp(1)
+		</script>
 </body>
 
 </html>
