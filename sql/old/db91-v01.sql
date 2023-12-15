@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-12-15 07:23:34
+-- 產生時間： 2023-12-11 09:25:18
 -- 伺服器版本： 10.4.28-MariaDB
 -- PHP 版本： 8.2.4
 
@@ -80,7 +80,7 @@ CREATE TABLE `bottom` (
 --
 
 INSERT INTO `bottom` (`id`, `bottom`) VALUES
-(1, '2023-12-15 頁尾版權');
+(1, '2023-12-11 頁尾版權');
 
 -- --------------------------------------------------------
 
@@ -129,8 +129,7 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`id`, `text`, `href`, `sh`, `menu_id`) VALUES
 (1, '管理登入', 'index.php?do=login', 1, 0),
-(2, '網站首頁', 'index.php', 1, 0),
-(5, 'test', 'https://kuro.tw/posts/2019/02/23/%E8%AB%87%E8%AB%87-JavaScript-%E7%9A%84-setTimeout-%E8%88%87-setInterval/', 1, 1);
+(2, '網站首頁', 'index.php', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -219,7 +218,7 @@ CREATE TABLE `total` (
 --
 
 INSERT INTO `total` (`id`, `total`) VALUES
-(1, 500);
+(1, 50);
 
 --
 -- 已傾印資料表的索引
@@ -311,7 +310,7 @@ ALTER TABLE `image`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `mvim`

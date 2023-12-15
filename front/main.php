@@ -6,8 +6,8 @@
 	<div style="height:32px; display:block;"></div>
 	<!------------------------------------------------------------------正中央------------------------------------------------------------------>
 
-<!-- script 往下挪 -->
-<!-- 不能先蓋房子(JS)才找地(HTML) -->
+	<!-- script 往下挪 -->
+	<!-- 不能先蓋房子(JS)才找地(HTML) -->
 
 	<div style="width:100%; padding:2px; height:290px;">
 		<!-- --------------------------------------------------- -->
@@ -28,48 +28,48 @@
 
 
 		<script>
-		var lin = new Array();
+			var lin = new Array();
 
 
-		<?php
-		$lins = $Mvim->all(['sh' => 1]);
-		foreach ($lins as $gif) {
-			echo "lin.push('{$gif['img']}');";
-		}
-		?>
+			<?php
+			$lins = $Mvim->all(['sh' => 1]);
+			foreach ($lins as $gif) {
+				echo "lin.push('{$gif['img']}');";
+			}
+			?>
 
-		// lin.push('01C01.gif');
-		// 善用js既有的陣列method
+			// lin.push('01C01.gif');
+			// 善用js既有的陣列method
 
-		// lin=
-		<?php
-		// $gifs = $Mvim->all(['sh' => 1]);
-		// $gifArr = [];
-		// foreach ($gifs as $gif) {
-		// 	$gifArr[] = $gif['img'];
-		// }
-		
-		// echo "['".join("','",$gifArr)."']";
-		?>
+			// lin=
+			<?php
+			// $gifs = $Mvim->all(['sh' => 1]);
+			// $gifArr = [];
+			// foreach ($gifs as $gif) {
+			// 	$gifArr[] = $gif['img'];
+			// }
+			
+			// echo "['".join("','",$gifArr)."']";
+			?>
 
-		var now = 0;
+			var now = 0;
 
-		ww();
-		
-		if (lin.length > 1) {
-			setInterval("ww()", 3000);
-			now = 1;
-		}
-		function ww() {
-			$("#mwww").html("<embed loop=true src='./img/" + lin[now] + "' style='width:99%; height:100%;'></embed>")
-			//$("#mwww").attr("src",lin[now])
-			now++;
-			if (now >= lin.length)
-				now = 0;
-		}
+			ww();
+
+			if (lin.length > 1) {
+				setInterval("ww()", 3000);
+				now = 1;
+			}
+			function ww() {
+				$("#mwww").html("<embed loop=true src='./img/" + lin[now] + "' style='width:99%; height:100%;'></embed>")
+				//$("#mwww").attr("src",lin[now])
+				now++;
+				if (now >= lin.length)
+					now = 0;
+			}
 
 
-	</script>
+		</script>
 
 
 		<script>
