@@ -16,7 +16,7 @@ include_once "../api/db.php";
 <form action="./api/submenu.php" method="post" enctype="multipart/form-data">
 
 
-    <table>
+    <table class="cent" id="sub">
 
         <tr>
             <td>次選單名稱:</td>
@@ -31,11 +31,16 @@ include_once "../api/db.php";
                 <td><input type="text" name="text[]" id="" value="<?= $sub['text']; ?>"></td>
                 <td><input type="text" name="href[]" id="" value="<?= $sub['href']; ?>"></td>
                 <td><input type="checkbox" name="del[]" id="" value="<?= $sub['id']; ?>"></td>
-                <input type="hidden" name="id[]" value="<?=$sub['menu_id']?>">
+                <input type="hidden" name="id[]" value="<?= $sub['id'] ?>">
             </tr>
             <?php
         }
         ?>
+
+        <tr>
+            <td><input type="text" name="add_text[]" id=""></td>
+            <td><input type="text" name="add_href[]" id=""></td>
+        </tr>
         <!--  -->
 
     </table>
@@ -43,7 +48,7 @@ include_once "../api/db.php";
         <input type="hidden" name="table" id="" value="<?= $_GET['table']; ?>">
         <input type="submit" value="修改確定">
         <input type="reset" value="重置">
-        <input type="button" value="更多次選單">
+        <input type="button" value="更多次選單" onclick="more()">
     </div>
 
 </form>
@@ -52,11 +57,10 @@ include_once "../api/db.php";
 
     function more() {
         let item = ` <tr>
-                         <td><input type="text" name="text[]" id=""></td>
-                         <td><input type="text" name="href[]" id=""></td>
-                         <td><input type="checkbox" name="del[]" id=""></td>
+                         <td><input type="text" name="add_text[]" id=""></td>
+                         <td><input type="text" name="add_href[]" id=""></td>                         
                     </tr>`
-        $("#xxx").append(item);
+        $("#sub").append(item);
     }
     // 
     // --before-- <div> --preppend--|--append-- </div> --after--
