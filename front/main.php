@@ -38,6 +38,9 @@
 		}
 		?>
 
+		// lin.push('01C01.gif');
+		// 善用js既有的陣列method
+
 
 
 
