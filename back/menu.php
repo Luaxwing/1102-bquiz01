@@ -13,6 +13,7 @@
 
             $rows = $DB->all();
             foreach ($rows as $row) {
+                if($row['menu_id']==0){
                 ?>
                 <tr>
                     <td>
@@ -30,11 +31,12 @@
                     </td>
                     <td>
                         <input type="button" value="編輯次選單"
-                            onclick="op('#cover','#cvr','./modal/submenu.php?table=<?= $do; ?>')">
+                            onclick="op('#cover','#cvr','./modal/submenu.php?table=<?= $do; ?>&id=<?=$row['id'];?>')">
                     </td> 
                 </tr>
                 <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                 <?php
+                }
             }
             ?>
         </tbody>
