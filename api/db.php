@@ -227,9 +227,9 @@ function pegetabs($now, $pages, $table)
 
 // $Title = new DB('que');
 // #000
-if (isset($_GET['do'])) {
-${ucfirst($_GET['do'])} = "";
-}
+// if (isset($_GET['do'])) {
+// ${ucfirst($_GET['do'])} = "";
+// }
 
 $Title = new DB('title');
 $Ad = new DB('ad');
@@ -249,17 +249,22 @@ if (isset($_GET['do'])) {
     // if(in_array($_GET['do'],$tables)){
     //     $DB=${ucfirst($_GET['do'])};
     // }
-    // if(isset(${ucfirst($_GET['do'])})){
-    //     $DB=${ucfirst($_GET['do'])};
-    // }
+
 
 
     // #000
     // 前面要先定義 ucfirst 成一個空字串，否則$tt會找不到東西
-    $tt = ${ucfirst($_GET['do'])};
-    if (isset($tt)) {
-        $DB = $tt;
+    // $tt = ${ucfirst($_GET['do'])};
+    // if (isset($tt)) {
+    //     $DB = $tt;
+    // }
+
+    #001
+    // 最省工，不要整些花裡胡哨@@
+    if (isset(${ucfirst($_GET['do'])})) {
+        $DB = ${ucfirst($_GET['do'])};
     }
+
 
 } else {
     $DB = $Title;
