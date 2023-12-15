@@ -11,9 +11,9 @@
             </tr>
             <?php
 
-            $rows = $DB->all();
+            $rows = $DB->all(['menu_id'=>0]);
             foreach ($rows as $row) {
-                if($row['menu_id']==0){
+                // if($row['menu_id']==0){
                 ?>
                 <tr>
                     <td>
@@ -37,7 +37,7 @@
                 <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                 <?php
                 }
-            }
+            // }
             ?>
         </tbody>
     </table>
