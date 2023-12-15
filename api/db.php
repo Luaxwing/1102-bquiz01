@@ -227,7 +227,9 @@ function pegetabs($now, $pages, $table)
 
 // $Title = new DB('que');
 // #000
+if (isset($_GET['do'])) {
 ${ucfirst($_GET['do'])} = "";
+}
 
 $Title = new DB('title');
 $Ad = new DB('ad');
