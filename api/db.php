@@ -190,19 +190,21 @@ function dd($array)
 // 記得:這裡的table是輸入字串，不是欄位
 // 引入字串，字串才去帶`col`
 
-function to($url){
+function to($url)
+{
     header("location:$url");
 }
 
 // 分頁標籤
-function pegetabs($now,$pages,$table){
-    
+function pegetabs($now, $pages, $table)
+{
+
     $prev = $now - 1;
     if ($prev >= 1) {
-        
+
         echo "<a href='?do=$table&p=$prev'> &lt; </a>";
     }
-    
+
     for ($i = 1; $i <= $pages; $i++) {
         $fontsize = ($now == $i) ? '24px' : '16px';
         echo " <a href=?do=$table&p=$i";
@@ -214,32 +216,51 @@ function pegetabs($now,$pages,$table){
         echo $i;
         echo "</a>";
     }
-    
+
     $next = $now + 1;
     if ($next <= $pages) {
         echo "<a href='?do=$table&p=$next'> &gt; </a>";
     }
-    
+
 }
 
 
 // $Title = new DB('que');
+// #000
+${ucfirst($_GET['do'])} = "";
+
+$Title = new DB('title');
+$Ad = new DB('ad');
+$Mvim = new DB('mvim');
+$Image = new DB('image');
+$Total = new DB('total');
+$Bottom = new DB('bottom');
+$News = new DB('news');
+$Admin = new DB('admin');
+$Menu = new DB('menu');
 
 
-$Title=new DB('title');
-$Ad=new DB('ad');
-$Mvim=new DB('mvim');
-$Image=new DB('image');
-$Total=new DB('total');
-$Bottom=new DB('bottom');
-$News=new DB('news');
-$Admin=new DB('admin');
-$Menu=new DB('menu');
 
-if(isset($_GET['do'])){
-    $DB=${ucfirst($_GET['do'])};
-}else{
-    $DB=$Title;
+// $tables=['title','total','bottom'];
+
+if (isset($_GET['do'])) {
+    // if(in_array($_GET['do'],$tables)){
+    //     $DB=${ucfirst($_GET['do'])};
+    // }
+    // if(isset(${ucfirst($_GET['do'])})){
+    //     $DB=${ucfirst($_GET['do'])};
+    // }
+
+
+    // #000
+    // 前面要先定義 ucfirst 成一個空字串，否則$tt會找不到東西
+    $tt = ${ucfirst($_GET['do'])};
+    if (isset($tt)) {
+        $DB = $tt;
+    }
+
+} else {
+    $DB = $Title;
 }
 
 ?>

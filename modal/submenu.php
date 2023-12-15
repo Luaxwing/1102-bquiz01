@@ -37,15 +37,16 @@ include_once "../api/db.php";
         }
         ?>
 
-        <tr>
+        <!-- <tr>
             <td><input type="text" name="add_text[]" id=""></td>
             <td><input type="text" name="add_href[]" id=""></td>
-        </tr>
+        </tr> -->
         <!--  -->
 
     </table>
     <div>
         <input type="hidden" name="table" id="" value="<?= $_GET['table']; ?>">
+        <input type="hidden" name="menu_id" value="<?= $_GET['id'] ?>">
         <input type="submit" value="修改確定">
         <input type="reset" value="重置">
         <input type="button" value="更多次選單" onclick="more()">
@@ -54,13 +55,22 @@ include_once "../api/db.php";
 </form>
 
 <script>
-
+    let buttonNum = 0;
     function more() {
-        let item = ` <tr>
+        let item = ` <tr id="btn${buttonNum}">
                          <td><input type="text" name="add_text[]" id=""></td>
-                         <td><input type="text" name="add_href[]" id=""></td>                         
+                         <td><input type="text" name="add_href[]" id=""></td> 
+                         <td><button type="button" onclick="less(${buttonNum})">--</button></td>       
                     </tr>`
         $("#sub").append(item);
+        buttomDel=buttonNum;
+        buttonNum++;
+    }
+
+    function less(btnID) {
+        rmbutton = document.getElementById(`btn${btnID}`);
+        console.log(rmbutton);
+        rmbutton.remove();
     }
     // 
     // --before-- <div> --preppend--|--append-- </div> --after--
