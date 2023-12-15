@@ -41,10 +41,6 @@
 		// lin.push('01C01.gif');
 		// 善用js既有的陣列method
 
-
-
-
-
 		// lin=
 		<?php
 		// $gifs = $Mvim->all(['sh' => 1]);
@@ -56,9 +52,10 @@
 		// echo "['".join("','",$gifArr)."']";
 		?>
 
-
 		var now = 0;
+
 		ww();
+		
 		if (lin.length > 1) {
 			setInterval("ww()", 3000);
 			now = 1;
