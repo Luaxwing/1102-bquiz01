@@ -86,21 +86,40 @@
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
 
+					<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
+					<?php
+					$imgs = $Image->all(['sh' => 1]);
 
-					<?php
-					// $imgs=$Image->all(['sh'=>1]);
-					
-					// foreach($imgs as $idx => $img){
+					foreach ($imgs as $idx => $img) {
+						?>
+						<div id="ssaa<?= $idx; ?>" class='im cent'>
+							<img src="./img/<?= $img['img']; ?>"
+								style="width:150px;height:103px;border:3px solid orange;margin:3px">
+						</div>
+						<?php
+					}
 					?>
-					<!-- <div id="ssaa<?= $idx; ?>" class='im'> -->
-					<!-- <img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px"> -->
-					<!-- </div> -->
-					<?php
-					// }
-					?>
+					<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
 
 
 					<script>
+						// var nowpage = 1, num = <?= $Image->count(['sh' => 1]); ?>;
+
+						// function pp(x) {
+						// 	var s, t;
+						// 	if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
+						// 	if (x == 2 && (nowpage + 1) <= num * 1 - 3) { nowpage++; }
+
+						// 	$(".im").hide()
+						// 	for (s = 0; s <= 2; s++) {
+						// 		t = s * 1 + nowpage * 1;
+						// 		$("#ssaa" + t).show()
+
+						// 	}
+						// }
+
+
+						// pp(2)
 
 						// var nowpage = 0, num = 0;
 						// // num 可能等於圖片數量
@@ -153,44 +172,44 @@
 	<script>
 		// 畫面映像
 
-		let $page = 0;
-		let $prev;
-		let $next;
+		let page = 0;
+		let prev;
+		let next;
 
 		const $allimgs = <?= $Image->count('id'); ?>;
-		const $lastimg = $allimgs - 1;
-		console.log($allimgs);
+		const $lastimg = allimgs - 1;
+		console.log(allimgs);
 
 		function up() {
-			if ($page > 0) {
-				$page = $page - 1;
+			if (page > 0) {
+				page = page - 1;
 			} else {
-				$page = $lastimg;
+				page = lastimg;
 			}
 			prev();
 		}
 
 		function down() {
-			if ($page < $lastimg) {
-				$page = $page + 1;
+			if (page < lastimg) {
+				page = page + 1;
 			} else {
-				$page = 0;
+				page = 0;
 			}
 		}
 
 		function prev() {
-			if ($prev > 0) {
-				$prev = $prev - 1;
+			if (prev > 0) {
+				prev = prev - 1;
 			} else {
-				$prev = $lastimg;
+				prev = lastimg;
 			}
 		}
 
 		function next() {
-			if ($next < $lastimg) {
-				$next = $next + 1;
+			if (next < lastimg) {
+				next = next + 1;
 			} else {
-				$next = 0;
+				next = 0;
 			}
 		}
 
