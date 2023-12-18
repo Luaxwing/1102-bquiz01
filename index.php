@@ -43,21 +43,21 @@
 				</div>
 			</div>
 
-				<!-- ----------------------------------------------------------MID----------------------------------------------------------------- -->
+			<!-- ----------------------------------------------------------MID----------------------------------------------------------------- -->
 
-				<?php
-				// $do = (isset($_GET['do']))?$_GET['do']:"main";
-				$do = $_GET['do'] ?? 'main';
-				// 只有isset這樣用
-				$file = "./front/{$do}.php";
-				if (file_exists($file)) {
-					include $file;
-				} else {
-					include "./front/main.php";
-				}
-				?>
+			<?php
+			// $do = (isset($_GET['do']))?$_GET['do']:"main";
+			$do = $_GET['do'] ?? 'main';
+			// 只有isset這樣用
+			$file = "./front/{$do}.php";
+			if (file_exists($file)) {
+				include $file;
+			} else {
+				include "./front/main.php";
+			}
+			?>
 
-				<!-- --------------------------------------------------------MID-END--------------------------------------------------------------- -->
+			<!-- --------------------------------------------------------MID-END--------------------------------------------------------------- -->
 			<div id="alt"
 				style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;">
 			</div>
@@ -81,9 +81,60 @@
 				<!--右邊-->
 				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
 					onclick="lo(&#39;?do=login&#39;)">管理登入</button>
+
+
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
+
+
+					<?php
+					// $imgs=$Image->all(['sh'=>1]);
+					
+					// foreach($imgs as $idx => $img){
+					?>
+					<!-- <div id="ssaa<?= $idx; ?>" class='im'> -->
+					<!-- <img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px"> -->
+					<!-- </div> -->
+					<?php
+					// }
+					?>
+
+
+					<script>
+
+						// var nowpage = 0, num = 0;
+						// // num 可能等於圖片數量
+
+						// function pp(x) {
+						// 	var s, t;
+
+						// 	// 上一頁
+						// 	if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
+
+						// 	// 下一頁
+						// 	if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) { nowpage++; }
+
+						// 	$(".im").hide()
+
+						// 	// s做出圖片分頁
+						// 	for (s = 0; s <= 2; s++) {
+						// 		// 可能有數字型態或字串型態的問題
+						// 		// 全部*1變數字型態相加
+						// 		t = s * 1 + nowpage * 1;
+
+						// 		// 此次+為字串相加
+						// 		// 控制當前圖片
+						// 		$("#ssaa" + t).show()
+						// 	}
+						// }
+
+						// pp(2)
+
+					</script>
+
 				</div>
+
+
 			</div>
 
 			<!-- login buttom -->
@@ -91,27 +142,61 @@
 		</div>
 		<div style="clear:both;"></div>
 		<div
-		style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
+			style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
 			<span class="t" style="line-height:123px;">
 				<?= $Bottom->find(1)['bottom']; ?>
 			</span>
 		</div>
 	</div>
 
-		<script>
-			var nowpage = 0, num = 0;
-			function pp(x) {
-				var s, t;
-				if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
-				if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) { nowpage++; }
-				$(".im").hide()
-				for (s = 0; s <= 2; s++) {
-					t = s * 1 + nowpage * 1;
-					$("#ssaa" + t).show()
-				}
+
+	<script>
+		// 畫面映像
+
+		let $page = 0;
+		let $prev;
+		let $next;
+
+		const $allimgs = <?= $Image->count('id'); ?>;
+		const $lastimg = $allimgs - 1;
+		console.log($allimgs);
+
+		function up() {
+			if ($page > 0) {
+				$page = $page - 1;
+			} else {
+				$page = $lastimg;
 			}
-			pp(1)
-		</script>
+			prev();
+		}
+
+		function down() {
+			if ($page < $lastimg) {
+				$page = $page + 1;
+			} else {
+				$page = 0;
+			}
+		}
+
+		function prev() {
+			if ($prev > 0) {
+				$prev = $prev - 1;
+			} else {
+				$prev = $lastimg;
+			}
+		}
+
+		function next() {
+			if ($next < $lastimg) {
+				$next = $next + 1;
+			} else {
+				$next = 0;
+			}
+		}
+
+	</script>
+
+
 </body>
 
 </html>
