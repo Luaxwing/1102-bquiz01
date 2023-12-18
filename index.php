@@ -83,6 +83,7 @@
 					onclick="lo(&#39;?do=login&#39;)">管理登入</button>
 
 
+
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
 
@@ -103,54 +104,25 @@
 
 
 					<script>
-						// var nowpage = 1, num = <?= $Image->count(['sh' => 1]); ?>;
+						var nowpage = 1, num = <?= $Image->count(['sh' => 1]); ?>;
 
-						// function pp(x) {
-						// 	var s, t;
-						// 	if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
-						// 	if (x == 2 && (nowpage + 1) <= num * 1 - 3) { nowpage++; }
+						function pp(x) {
+							var s, t;
+							if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
+							if (x == 2 && (nowpage + 1) <= num * 1 - 3) { nowpage++; }
 
-						// 	$(".im").hide()
-						// 	for (s = 0; s <= 2; s++) {
-						// 		t = s * 1 + nowpage * 1;
-						// 		$("#ssaa" + t).show()
+							$(".im").hide()
+							for (s = 0; s <= 2; s++) {
+								t = s * 1 + nowpage * 1;
+								$("#ssaa" + t).show()
 
-						// 	}
-						// }
+							}
+						}
 
 
-						// pp(2)
-
-						// var nowpage = 0, num = 0;
-						// // num 可能等於圖片數量
-
-						// function pp(x) {
-						// 	var s, t;
-
-						// 	// 上一頁
-						// 	if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
-
-						// 	// 下一頁
-						// 	if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) { nowpage++; }
-
-						// 	$(".im").hide()
-
-						// 	// s做出圖片分頁
-						// 	for (s = 0; s <= 2; s++) {
-						// 		// 可能有數字型態或字串型態的問題
-						// 		// 全部*1變數字型態相加
-						// 		t = s * 1 + nowpage * 1;
-
-						// 		// 此次+為字串相加
-						// 		// 控制當前圖片
-						// 		$("#ssaa" + t).show()
-						// 	}
-						// }
-
-						// pp(2)
+						pp(2)
 
 					</script>
-
 				</div>
 
 
@@ -169,51 +141,7 @@
 	</div>
 
 
-	<script>
-		// 畫面映像
 
-		let page = 0;
-		let prev;
-		let next;
-
-		const $allimgs = <?= $Image->count('id'); ?>;
-		const $lastimg = allimgs - 1;
-		console.log(allimgs);
-
-		function up() {
-			if (page > 0) {
-				page = page - 1;
-			} else {
-				page = lastimg;
-			}
-			prev();
-		}
-
-		function down() {
-			if (page < lastimg) {
-				page = page + 1;
-			} else {
-				page = 0;
-			}
-		}
-
-		function prev() {
-			if (prev > 0) {
-				prev = prev - 1;
-			} else {
-				prev = lastimg;
-			}
-		}
-
-		function next() {
-			if (next < lastimg) {
-				next = next + 1;
-			} else {
-				next = 0;
-			}
-		}
-
-	</script>
 
 
 </body>
