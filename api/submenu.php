@@ -24,7 +24,7 @@ if (isset($_POST['id'])) {
 if (isset($_POST['add_text'])) {
     foreach ($_POST['add_text'] as $idx => $id) {
         $data=[];
-        $data['text']=$text;
+        $data['text']=$_POST['add_text'][$idx];
         $data['href']=$_POST['add_href'][$idx];
         $data['sh']=1;
         $data['menu_id']=$_POST['menu_id'];
