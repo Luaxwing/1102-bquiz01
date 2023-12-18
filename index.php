@@ -27,8 +27,9 @@
 		<?php
 		$img = $Title->find(['sh' => 1]);
 		?>
-		<a title="<?= $img['text'] ?>" href="./back.php?">
-			<div class="ti" style="background:url('./img/<?= $img['img'] ?>'); background-size:cover;"></div><!--標題-->
+		<a title="<?= $img['text'] ?>" href="">
+			<div class="ti" style="background:url('./img/<?= $img['img'] ?>'); background-size:cover;"></div>
+			<!--標題-->
 		</a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
@@ -50,7 +51,7 @@
 
 							<div class="mw" style="display:none">
 								<?php
-								if (($Menu->count(['menu_id' => $main['id']] ))> 0) {
+								if (($Menu->count(['menu_id' => $main['id']])) > 0) {
 									$mainmu2 = $Menu->all(['menu_id' => $main['id']]);
 									foreach ($mainmu2 as $sub) {
 										?>
@@ -121,10 +122,23 @@
 
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-					onclick="lo(&#39;?do=login&#39;)">管理登入</button>
 
+				<?php
+				// if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
+				if (isset($_SESSION['login'])) {
+					?>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+						onclick="lo(&#39;back.php&#39;)">後臺管理</button>
 
+					<?php
+				} else {
+					?>
+
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+						onclick="lo(&#39;?do=login&#39;)">管理登入</button>
+					<?php
+				}
+				?>
 
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
@@ -146,12 +160,17 @@
 
 
 					<script>
-						var nowpage = 1, num = <?= $Image->count(['sh' => 1]); ?>;
+						var nowpage = 1,
+							num = <?= $Image->count(['sh' => 1]); ?>;
 
 						function pp(x) {
 							var s, t;
-							if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
-							if (x == 2 && (nowpage + 1) <= num * 1 - 3) { nowpage++; }
+							if (x == 1 && nowpage - 1 >= 0) {
+								nowpage--;
+							}
+							if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
+								nowpage++;
+							}
 
 							$(".im").hide()
 							for (s = 0; s <= 2; s++) {
@@ -163,7 +182,6 @@
 
 
 						pp(2)
-
 					</script>
 				</div>
 
