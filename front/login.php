@@ -1,7 +1,8 @@
 <?php
-// if (isset($_SESSION['login'])) {
-// 	header("location:../back.php");
-// }else{
+if (isset($_SESSION['login'])) {
+	// header("location:../back.php");
+	to("back.php");
+}
 
 
 ?>
@@ -42,6 +43,3 @@ echo "<p class=cent>已登入</p>";
 
 
 
-<?php
-// }
-?>

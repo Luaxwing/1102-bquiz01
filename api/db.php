@@ -143,6 +143,7 @@ class DB
     }
     // 
     // 受不了重複的程式碼
+    // 其他
     function q($sql)
     {
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -269,6 +270,12 @@ if (isset($_GET['do'])) {
 
 } else {
     $DB = $Title;
+}
+
+
+if(!isset($_SESSION['visited'])){
+    $Total->q("update `total` set `total`=`total`+1 where `id`=1");
+    $_SESSION['visited']=1;
 }
 
 ?>
