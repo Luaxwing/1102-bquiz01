@@ -13,7 +13,7 @@
                 <?php
             
                 $rows=$DB->all();
-                foreach($rows as $row){
+                foreach($rows as $row ){
                 ?>
                 <tr>
                     <td width="45%">
